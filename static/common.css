@@ -1,0 +1,116 @@
+html { height: 100%; width: 100%; }
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	color: #ffffff;
+	background-color: #85AFDF;
+    height: 100%;
+    width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #ffffff;
+	text-decoration: none;
+}
+a:hover {
+	color: #85AFDF;
+	text-decoration: none;
+}
+
+
+#masthead{
+	width: 800px;
+	height: 110px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background: #1a1a1a;
+	color: #ffffff;
+	border-bottom: 3px solid #85AFDF;
+	border-top: 10px solid #85AFDF;
+	font-family: "Copperplate Gothic Bold", "Copperplate Gothic", serif;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#navigator {
+	width: 800px;
+	height: 1.5em;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background-color: #1a1a1a;
+	color: #ffffff;
+	border-bottom: 3px solid #85AFDF;
+	font-family: "Copperplate Gothic Bold", "Copperlate Gothic", serif;
+	font-size: 1.3em;
+	height: 1.2em;
+	vertical-align: top;
+}
+
+#content{
+	width: 800px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background: #1a1a1a;
+	color: #ffffff;
+	border-bottom: 3px solid #85AFDF;
+	font-family:serif;
+	font-size:1em;
+	text-align:center;
+}
+
+#footer {
+	width: 800px;
+	height: 1.5em;
+	font-size:.75em;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background-color: #1a1a1a;
+	color: #ffffff;
+	border-bottom: 3px solid #85AFDF;
+}
+
+h1 {
+	border: none;
+	margin:none;
+	padding-left: 45px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.4em;
+	text-align: left;
+}
+
+h2 {
+	border: none;
+	margin:none;
+	font-family: "Copperplate Gothic Bold", "Copperlate Gothic", serif;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+form {
+	font-family: "Copperlate Gothic", serif;
+}
+
+p {
+	padding-left:75px;
+	padding-right:75px;
+	text-align: left;
+	font-size: .9em;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.5;
+}
+
+li {
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.3;
+	text-align: left;
+	font-size:.9em;
+}
+
+hr {
+	color: white;
+	width: 85%;
+	background-color:white;
+	height: 2px;
+}

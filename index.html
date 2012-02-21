@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Brother Library Tracker</title>
+    <meta name="robots" content="index,follow,all">
+    <link rel="shortcut icon" href="images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="common.css" />
+</head>
+
+<body>
+<center>
+
+<div id="masthead">
+<table cellpadding="0" cellspacing="0">
+<td width="340" height="110" style="font-size:36;text-align:center;"><a href="http://www.betathetapi.org">Beta Theta Pi</a></td>
+<td width="120" height="110" style="font-size:65;text-align:center;"><a href="index.html">AX</a></td>
+<td width="340" height="110" style="font-size:35;text-align:center;"><a href="http://www.jhu.edu">Johns Hopkins</a></td>
+</table>
+</div>
+
+<table id="navigator" cellpadding="0" cellspacing="0">
+<tr style="text-align:center" id="navigation">
+<td width="800px">Brother in the library finder</td>
+</tr>
+</table>
+
+
+
+
+<div id="content">
+</br></br></br><h2> Brothers currently in the library: </h2>
+{% for loc in locations %}
+	<strong>{{ loc.creator }} </strong>
+	{% if loc.other_bros %} with {{loc.other_bros}}: </br>
+	{% endif %}
+	Arrived: {{ loc.arrival }} </br>
+	Leaving: {{ loc.departure }} </br>
+	Location: {{ loc.location }} </br>
+	Open Seats: {{ loc.open_seats }} </br>
+	Notes: {{ loc.notes }} </br> </br>
+{% endfor %}
+
+<a href="{{ add_loc_url }}">Add Location</a>
+
+</br></br>
+</div>
+
+
+<center>
+</body>
+
+</html>
