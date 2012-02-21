@@ -29,12 +29,12 @@
 <div id="content">
 </br></br></br><h2> Brothers currently in the library: </h2>
 {% for loc in locations %}
-	<strong>  {{ loc.creator }} </strong>
+	<strong>  {{ loc.name }} </strong>
 	{% if loc.other_bros %} with {{loc.other_bros}}:
 	{% endif %}
 	</br>
-	Arrived: {{ loc.arrival }} </br>
-	Leaving: {{ loc.departure }} </br>
+	Arrived: {{ loc.arrival.hour|add:"-5" }}:{{ loc.arrival.minute }} </br>
+	Leaving: {{ loc.departure.hour|add:"-5" }}:{{ loc.departure.minute }} </br>
 	Location: {{ loc.location }} </br>
 	Open Seats: {{ loc.open_seats }} </br>
 	Notes: {{ loc.notes }} </br> </br>

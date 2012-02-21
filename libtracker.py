@@ -11,7 +11,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 
 class Location(db.Model):
-	creator = db.StringProperty #might change this to just be a string
+	name = db.StringProperty() #might change this to just be a string
 	arrival = db.DateTimeProperty(auto_now_add=True)
 	departure = db.DateTimeProperty()	
 	#on display, this will convert to a time of day based on arrival time
@@ -32,7 +32,8 @@ class MainPage(webapp.RequestHandler):
 		#remove brother entries who have already left
 		currentlocs = []
 		for loc in locations:
-			if loc.departure > datetime.datetime.now():
+			if loc.departure > datetime.datetime.utcnow():
+					
 				currentlocs.append(loc)
 
 		url = self.request.relative_url('static/addloc.html')
@@ -48,7 +49,7 @@ class MainPage(webapp.RequestHandler):
 class ProcessLocation(webapp.RequestHandler):
 	def post(self):
 		location = Location(parent=location_key())
-		location.creator = self.request.get('fname')
+		location.name = self.request.get('fname')
 		duration = datetime.timedelta(hours=float(self.request.get('duration')))
 		
 		location.departure = datetime.datetime.now() + duration
