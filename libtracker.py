@@ -5,20 +5,20 @@ import urllib
 import wsgiref.handlers
 
 from google.appengine.ext import db
-from google.appengine.ext import users
+from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 
-class Location(db.model):
+class Location(db.Model):
 	creator = db.StringProperty #might change this to just be a string
 	arrival = db.DateTimeProperty(auto_now_add=True)
 	departure = db.DateTimeProperty()	
 	#on display, this will convert to a time of day based on arrival time
 	location = db.StringProperty()
 	open_seats = db.IntegerProperty()
-	other_bros = db.StringProperty(multiline=true)
-	notes = db.StringProperty(multiline=true)
+	other_bros = db.StringProperty(multiline=True)
+	notes = db.StringProperty(multiline=True)
 
 
 def location_key():
@@ -41,8 +41,7 @@ class MainPage(webapp.RequestHandler):
 			'locations': currentlocs,
 			'add_loc_url': url,
 		}
-
-		path = os.path.join.dirname(__file__), 'index.html')
+		path = os.path.join(os.path.dirname(__file__), 'index.html')
 		self.response.out.write(template.render(path, template_values))
 
 
