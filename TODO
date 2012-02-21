@@ -1,0 +1,13 @@
+TODO List:
+
+
+ -Times are not correct right now. I think the auto_add_now
+property is adding them at UTC time or something
+
+ -Times are also not displayed in a very user friendly format
+right now, we don't need to display the full date
+
+ -The creator's name is not displayed right now, I have no
+idea why
+
+ -Probably should figure out a way to delete things from the database

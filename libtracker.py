@@ -32,10 +32,10 @@ class MainPage(webapp.RequestHandler):
 		#remove brother entries who have already left
 		currentlocs = []
 		for loc in locations:
-			if loc.departure > datetime.now:
-				currentlocs.add(loc)
+			if loc.departure > datetime.datetime.now():
+				currentlocs.append(loc)
 
-		url = self.request.relative_url('add_loc')
+		url = self.request.relative_url('static/addloc.html')
 
 		template_values = {
 			'locations': currentlocs,
@@ -48,12 +48,12 @@ class MainPage(webapp.RequestHandler):
 class ProcessLocation(webapp.RequestHandler):
 	def post(self):
 		location = Location(parent=location_key())
-		location.creator = self.request.get('creator')
-		duration = timedelta(hours=self.request.get('duration'))
+		location.creator = self.request.get('fname')
+		duration = datetime.timedelta(hours=float(self.request.get('duration')))
 		
-		location.departure = datetime.now() + float(duration)
+		location.departure = datetime.datetime.now() + duration
 		location.location = self.request.get('location')
-		location.open_seats = self.request.get('open_seats')
+		location.open_seats = int(self.request.get('openseats'))
 		location.other_bros = self.request.get('other_bros')
 		location.notes = self.request.get('notes')
 		location.put()

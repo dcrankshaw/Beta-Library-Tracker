@@ -3,7 +3,7 @@
 <title>Brother Library Tracker</title>
     <meta name="robots" content="index,follow,all">
     <link rel="shortcut icon" href="static/images/favicon.ico"/>
-	<link rel="stylesheet" type="text/css" href="common.css" />
+	<link rel="stylesheet" type="text/css" href="static/common.css" />
 </head>
 
 <body>
@@ -29,9 +29,10 @@
 <div id="content">
 </br></br></br><h2> Brothers currently in the library: </h2>
 {% for loc in locations %}
-	<strong>{{ loc.creator }} </strong>
-	{% if loc.other_bros %} with {{loc.other_bros}}: </br>
+	<strong> Hello: {{ loc.creator }} </strong>
+	{% if loc.other_bros %} with {{loc.other_bros}}:
 	{% endif %}
+	</br>
 	Arrived: {{ loc.arrival }} </br>
 	Leaving: {{ loc.departure }} </br>
 	Location: {{ loc.location }} </br>
