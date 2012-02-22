@@ -33,8 +33,8 @@
 	{% if loc.other_bros %} with {{loc.other_bros}}:
 	{% endif %}
 	</br>
-	Arrived: {{ loc.arrival.hour|add:"-5" }}:{{ loc.arrival.minute }} </br>
-	Leaving: {{ loc.departure.hour|add:"-5" }}:{{ loc.departure.minute }} </br>
+	Arrived: {{ loc.arrival.hour }}:{{ loc.arrival.minute }} </br>
+	Leaving: {{ loc.departure.hour }}:{{ loc.departure.minute }} </br>
 	Location: {{ loc.location }} </br>
 	Open Seats: {{ loc.open_seats }} </br>
 	Notes: {{ loc.notes }} </br> </br>
