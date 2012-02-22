@@ -11,21 +11,6 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext.webapp import template
 
-class Zone(tzinfo):
-	def __init__(self, offset, isdst, name):
-		self.offset=offset
-		self.isdst=isdst
-		self.name=name
-	
-	def utcoffset(self, dt):
-		return timedelta(hours=self.offset) + self.dst(dt)
-
-	def dst(self, dt):
-		return timedelta(hours=1) if self.isdst else timedelta(0)
-
-	def tzname(self, dt):
-		return self.name
-
 
 class Location(db.Model):
 	name = db.StringProperty() #might change this to just be a string
@@ -54,9 +39,12 @@ class MainPage(webapp.RequestHandler):
 		for loc in locations:
 			if datetime.utcnow() < loc.departure:
 				tzloc = {}
+				fmat = '%I:%M %p'
 				tzloc['name'] = loc.name
-				tzloc['arrival'] = loc.arrival - timedelta(hours=5)
-				tzloc['departure'] = loc.departure - timedelta(hours=5)
+				arrivetime = loc.arrival - timedelta(hours=5)
+				tzloc['arrival'] = arrivetime.strftime(fmat)
+				deptime = loc.departure - timedelta(hours=5)
+				tzloc['departure'] = deptime.strftime(fmat) 
 				tzloc['location'] = loc.location
 				tzloc['open_seats'] = loc.open_seats
 				tzloc['other_bros'] = loc.other_bros
